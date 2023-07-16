@@ -1,0 +1,16 @@
+
+{
+  "required": true,
+  "minVersion": "0.8",
+  "refmap": "mixins.vaultseed.refmap.json",
+  "package": "com.radimous.vaultseed.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "CrystalCommandMixin",
+    "CrystalDataMixin",
+    "VaultFactoryMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
