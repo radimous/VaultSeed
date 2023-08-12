@@ -17,7 +17,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0'
+version = '1.1'
 group = 'com.radimous.vaultseed' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'vaultseed'
 
@@ -170,8 +170,11 @@ dependencies {
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation fg.deobf("curse.maven:vault-hunters-official-mod-458203:4570130")
+    implementation fg.deobf("curse.maven:vault-hunters-official-mod-458203:4686889")
     implementation fg.deobf("curse.maven:curios-309927:4418032") //VH dep
+    implementation fg.deobf("curse.maven:quark-243121:3840125")
+    implementation fg.deobf("curse.maven:autoreglib-250363:3642382")
+    implementation fg.deobf("curse.maven:architects-palette-433862:4498424")
 
     //prevent crash when it tries to search for items to damage in backpacks
     implementation fg.deobf("curse.maven:sophisticated-backpacks-vault-hunters-edition-696425:4287544")
@@ -181,16 +184,9 @@ dependencies {
     //faster loading
     implementation fg.deobf("curse.maven:lazydfu-433518:3209972")
     implementation fg.deobf("curse.maven:modernfix-790626:4565795")
-    implementation fg.deobf("curse.maven:crafttweaker-239197:4461930")
     //in game config and nbt
     implementation fg.deobf("curse.maven:configured-457570:4462832")
     implementation fg.deobf("curse.maven:nbt-tool-451553:3748971")
-
-
-
-    implementation fg.deobf("curse.maven:spark-361579:4505375")
-
-
 
 
     // Real mod deobf dependency examples - these get remapped to your current mappings

@@ -9,6 +9,7 @@ import iskallia.vault.command.CrystalCommand;
 import iskallia.vault.item.crystal.CrystalData;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -25,7 +26,7 @@ public abstract class CrystalCommandMixin {
     private void seedCommand(LiteralArgumentBuilder<CommandSourceStack> builder, CallbackInfo ci) {
         builder.then(
             Commands.literal("setSeed")
-                .then(Commands.argument("seed", LongArgumentType.longArg()).executes(this::setSeed))
+                .then(Commands.argument("seed", LongArgumentType.longArg(0,281474976710655L)).executes(this::setSeed))
                 .executes(this::removeSeed)
         );
     }
@@ -36,6 +37,7 @@ public abstract class CrystalCommandMixin {
         long seed = LongArgumentType.getLong(context, "seed");
         ((CrystalSeed) data).setSeed(seed);
         data.write(crystal);
+        context.getSource().sendSuccess(new TextComponent("Seed successfully changed to " + seed),false);
         return 0;
     }
 
@@ -44,6 +46,7 @@ public abstract class CrystalCommandMixin {
         CrystalData data = CrystalData.read(crystal);
         ((CrystalSeed) data).setSeed(null);
         data.write(crystal);
+        context.getSource().sendSuccess(new TextComponent("Seed removed successfully, vault will generate with random seed"),false);
         return 0;
     }
 }

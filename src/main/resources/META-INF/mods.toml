@@ -29,12 +29,12 @@ displayName="Vault Seed" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="logo.png" #optional
 # A text field displayed in the mod UI
-credits="" #optional
 # A text field displayed in the mod UI
 authors="radimous" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-    Adds command /the_vault crystal setSeed to set the crystal seed
+Adds command /the_vault crystal setSeed to set the crystal seed
+Also adds button to the vault end screen that allows you to copy the vault seed (can be disabled in config)
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.vaultseed]] #optional
@@ -58,6 +58,6 @@ description='''
 [[dependencies.vaultseed]]
     modId="the_vault"
     mandatory=true
-    versionRange="1.0"
+    versionRange="[1.18.2-3.11.0.2547,)" # version where skill altar copy button was added
     ordering="NONE"
     side="BOTH"
